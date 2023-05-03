@@ -21,5 +21,10 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/images', [ImageController::class, 'index']);
+//Route::get('/images', [ImageController::class, 'index']);
+
+Route::get('/images/{index}', [ImageController::class, 'show']);
+
+
+
 

@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
-    //
-    public function index()
+    public function show(Request $request, $index)
     {
-        return view('images');
+        $data = session()->get('data');
+        $item = $data[$index];
+
+        // Visszaadni a megfelelő megjelenítést, például egy view-t
+        return view('show', compact('item'));
     }
 }

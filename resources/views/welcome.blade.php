@@ -12,20 +12,38 @@
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-<div class="row" style="max-width: 100%; margin: 0;">
-    @foreach ($data as $item)
-        <div class="col-md-4 border" style="height: 250px; margin: 0; padding:0;">
-            <a href="/images">
-                @if (isset($item['images']))
-                    <img src="{{$item['images'][0]}}" class="mx-auto d-block"
-                         style="width: auto; height: 90%; border: 3px solid blue; max-width: 100%;">
-                @endif
-                <div>
-                    <p style="height: 10%; max-width: 100%; text-align: center;">{{ $item['title'] }}</p>
-                </div>
-            </a>
-        </div>
-    @endforeach
+{{--<div class="row" style="max-width: 100%; margin: 0;">--}}
+{{--    @foreach ($data as $item)--}}
+{{--        <div class="col-md-4 border" style="height: 250px; margin: 0; padding:15px;">--}}
+{{--            <a href="/images/{{$loop->index}}">--}}
+{{--                @if (isset($item['images']))--}}
+{{--                    <img src="{{$item['images'][0]}}" class="mx-auto d-block"--}}
+{{--                         style="width: auto; height: 90%; border: 1px solid black; max-width: 100%;">--}}
+{{--                @endif--}}
+{{--                <div>--}}
+{{--                    <p style="height: 10%; max-width: 100%; text-align: center;">{{ $item['title'] }}</p>--}}
+{{--                </div>--}}
+{{--            </a>--}}
+{{--        </div>--}}
+{{--    @endforeach--}}
+{{--</div>--}}
+
+<div class="container" style="max-width: 100%;">
+    <div class="row">
+        @foreach ($data as $item)
+            <div class="col-md-4 border" style="height: 250px; padding:15px;">
+                <a href="/images/{{$loop->index}}">
+                    @if (isset($item['images']))
+                        <img src="{{$item['images'][0]}}" class="mx-auto d-block"
+                             style="width: auto; height: 90%; border: 1px solid black; max-width: 100%;">
+                    @endif
+                    <div>
+                        <p style="height: 10%; max-width: 100%; text-align: center;">{{ $item['title'] }}</p>
+                    </div>
+                </a>
+            </div>
+        @endforeach
+    </div>
 </div>
 </body>
 </html>

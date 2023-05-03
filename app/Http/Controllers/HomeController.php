@@ -11,6 +11,8 @@ class HomeController extends Controller
         $json = file_get_contents(resource_path('data/example.json'));
         $data = json_decode($json, true);
 
+        session()->put('data', $data);
+
         return view('welcome', ['data' => $data]);
     }
 }
